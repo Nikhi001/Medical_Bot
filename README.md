@@ -208,6 +208,4 @@ If you want, next we can add:
 * “What happens when I run ingest.py”
 * “How FAISS works in simple terms”
 * “Common beginner errors and fixes”
-* “One-command setup for first-time users”
-
-Tell me **which section to add next**, and I’ll update it without changing your structure again.
+* “One-command setup for first-time users” 
