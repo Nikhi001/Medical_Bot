@@ -14,14 +14,19 @@ Instead of generating answers blindly, the chatbot retrieves relevant content fr
 
 ---
 
-## What This Application Does
+### What this project contains
 
-1. Accepts medical documents in PDF format
-2. Splits document text into manageable chunks
-3. Converts text chunks into vector embeddings
-4. Stores embeddings in a FAISS vector database
-5. Retrieves relevant document chunks for a query
-6. Generates an answer using the retrieved context
+- **main.py** – Starts the medical chatbot (app/chat loop).
+- **connect_memory_with_LLM.py** – Connects vector memory with the LLM for retrieval.
+- **create_memory_for_llm.py** – Creates embeddings and builds the FAISS vector store.
+- **requirement.txt** – Project dependencies
+- **.gitignore** – Ignores venv, cache, and unnecessary files in Git.
+- **data/** – Stores source medical PDFs.
+    - *The_GALE_ENCYCLOPEDIA_of_MEDICINE_SECOND.pdf* – Main knowledge document.
+- **vectorstore/** – Stores vector database.
+    - **db_faiss/**
+        - *index.faiss* – FAISS embedding index.
+        - *index.pkl* – Metadata and document–chunk mapping.
 
 ---
 
