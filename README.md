@@ -78,31 +78,21 @@ AI_medical_chatbot/
 
 ---
 
-## Installation and Setup
+## Quickstart
 
-### Step 1: Python Version
+**Prerequisites**
 
-Verify Python installation:
+Python 3.11 
 
+A virtual environment (recommended)
+
+Install dependencies
 ```
-python --version
-```
-
-Required version: **Python 3.9 or higher**
-
----
-
-### Step 2: Install Dependencies
-
-Install all required libraries:
-
-```
+python -m venv venv
+.venv\Scripts\activate
 pip install -r requirements.txt
 ```
-
----
-
-### Step 3: Configure Environment Variables
+**Configure Environment Variables**
 
 Create a file named `.env` in the project root directory.
 
@@ -116,23 +106,51 @@ This token is required to access HuggingFace models and embeddings.
 
 ---
 
-### Step 4: Run the Application
+**Run the Application**
 
 Start the chatbot interface:
 
 ```
-streamlit run app.py
+streamlit run main.py
 ```
 
 ---
 
-### Step 5: Access the Application
+**Access the Application**
 
 Open a browser and navigate to:
 
 ```
 http://localhost:8501
 ```
+
+---
+
+## System Workflow
+
+### Phase 1(connect_memory_with_LLM.py): Vector Database Creation
+
+* Load medical PDF documents
+* Split text into chunks
+* Generate vector embeddings
+* Store embeddings in FAISS
+
+---
+
+### Phase 2(create_memory_for_llm.py): LLM and Memory Integration
+
+* Initialize the Mistral LLM using HuggingFace
+* Connect FAISS as the retriever
+* Build the LangChain RAG pipeline
+
+---
+
+### Phase 3(main.py): Chatbot User Interface
+
+* Load the FAISS index from disk
+* Accept user queries
+* Retrieve relevant document chunks
+* Generate responses using the LLM
 
 ---
 
@@ -148,37 +166,7 @@ data/medical_docs/
 3. Launch the Streamlit application
 4. Enter medical questions in the chatbot interface
 5. The chatbot responds using only the document content
-
 ---
-
-## System Workflow
-
-### Phase 1: Vector Database Creation
-
-* Load medical PDF documents
-* Split text into chunks
-* Generate vector embeddings
-* Store embeddings in FAISS
-
----
-
-### Phase 2: LLM and Memory Integration
-
-* Initialize the Mistral LLM using HuggingFace
-* Connect FAISS as the retriever
-* Build the LangChain RAG pipeline
-
----
-
-### Phase 3: Chatbot User Interface
-
-* Load the FAISS index from disk
-* Accept user queries
-* Retrieve relevant document chunks
-* Generate responses using the LLM
-
----
-
 ## Future Enhancements
 
 * User authentication
@@ -189,7 +177,6 @@ data/medical_docs/
 * Cloud deployment (AWS, Azure, GCP)
 
 ---
-
 ## Disclaimer
 
 This chatbot does **not** provide medical advice.
@@ -197,33 +184,3 @@ It should not be used for diagnosis or treatment decisions.
 
 Always consult qualified healthcare professionals.
 
----
-
-## Contributing
-
-Contributions are welcome.
-Fork the repository and submit a pull request with proper documentation.
-
----
-
-## License
-
-This project is licensed under the **MIT License**.
-
----
-
-## Author
-
-Nikhil
-AI / ML Developer
-
----
-
-### Next logical beginner-friendly additions (optional)
-
-If you want, next we can add:
-
-* “What happens when I run ingest.py”
-* “How FAISS works in simple terms”
-* “Common beginner errors and fixes”
-* “One-command setup for first-time users” 
