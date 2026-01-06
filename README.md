@@ -47,20 +47,33 @@ Instead of generating answers blindly, the chatbot retrieves relevant content fr
 ## Project Structure
 
 ```
-medical-chatbot/
+AI_medical_chatbot/
+│
+├── main.py
+│   # Application entry point (starts the chatbot)
+│
+├── connect_memory_with_LLM.py
+│   # Loads FAISS vector store and connects it with the LLM (RAG step)
+│
+├── create_memory_for_llm.py
+│   # Processes PDFs, creates embeddings, and builds vector memory
+│
+├── requirements.txt
+│   # Python project dependencies
+│
+├── .gitignore
+│   # Files and folders excluded from Git tracking
 │
 ├── data/
-│   └── medical_docs/        # Medical PDF input files
+│   └── The_GALE_ENCYCLOPEDIA_of_MEDICINE_SECOND.pdf
+│       # Source medical knowledge document
 │
-├── vector_store/
-│   └── faiss_index/         # Stored FAISS embeddings
-│
-├── ingest.py                # PDF loading and embedding creation
-├── chain.py                 # RAG pipeline (Retriever + LLM)
-├── app.py                   # Streamlit chatbot application
-├── requirements.txt         # Python dependencies
-├── .env                     # Environment variables
-└── README.md
+└── vectorstore/
+    └── db_faiss/
+        ├── index.faiss
+        │   # FAISS vector index (embeddings)
+        └── index.pkl
+            # Metadata and document–chunk mapping
 ```
 
 ---
